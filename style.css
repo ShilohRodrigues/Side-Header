@@ -1,0 +1,156 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background-color: #efefef;
+}
+
+a {
+  display: block;
+  color: #000;
+  text-decoration: none;
+}
+
+ul {
+  padding-left: 0;
+  list-style: none;
+}
+
+.h-main {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 4rem;
+  background-color: #000;
+  transition: 0.5s ease-out;
+  z-index: 100;
+}
+
+.h-main nav {
+  margin-top: 1rem;
+}
+
+/* Style for header title and btn */
+#btn {
+  cursor: pointer;
+}
+.h-title {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 0.8rem 0.7rem;
+  font-size: 1.5rem;
+}
+.h-title .h-nav-title {
+  display: none;
+  font-size: 1.8rem;
+  color: #fff;
+  white-space: nowrap;
+}
+
+/* Style for icons and text */
+.h-main a {
+  overflow: hidden;
+  transition: 0.4s;
+}
+.h-nav-option {
+  position: relative;
+  padding: 0.8rem 0.7rem;
+  font-size: 1.5rem;
+  white-space: nowrap;
+}
+.h-nav-option .h-nav-name {
+  display: none;
+  padding: 0 1rem;
+  color: #fff;
+  background-color: #000;
+  transition: 0.4s;
+}
+.h-main i {
+  color: #fff;
+  height: 2.5rem;
+  width: 2.5rem;
+  line-height: 2.5rem;
+  text-align: center;
+  background-color: #000;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+/* Style for hover of icons */
+.h-main.closed i:hover {
+  background-color: #fff;
+  color: #000;
+  transform: rotate(360deg);
+  border-radius: 30%;
+}
+.h-main.open a:hover i, .h-main.open a:hover .h-nav-name, .h-main.open .h-nav-option a:hover {
+  background-color: #fff;
+  color: #000;
+  border-radius: 0.8rem;
+}
+
+/* Display and hide the header option names, 
+  based on open class */
+.h-main.open {
+  width: 18rem;
+}
+.h-main.open .h-nav-name {
+  display: inline-block;
+}
+.h-main.open .h-title {
+  justify-content: space-between;
+}
+.h-main.open .h-nav-title {
+  display: block;
+}
+
+/* Style for tooltips */
+.h-main .tooltip {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  transition: 0.4s;
+}
+.h-main .tooltip.text {  
+  left: 115%;
+  padding: 0.3rem 0.3rem;
+  border-radius: 0.1rem;
+  font-size: 0.9rem;
+  background: #000;
+  white-space: nowrap;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+.h-main .tooltip.arrow {
+  height: 0;
+  width: 0;
+  left: 100%;
+  border-style: solid;
+  border-width: 0.8rem 0.6rem 0.8rem 0;
+  border-color: transparent #000 transparent transparent;
+}
+.h-main.closed i:hover ~ .tooltip, .h-main.closed a:hover ~ .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+/*Style for main content position*/
+.main-content {
+  position: relative;
+  left: 4rem;
+  transition: 0.5s ease-out;
+}
+.main-content.open {
+  left: 18rem;
+}
